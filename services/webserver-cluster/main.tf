@@ -15,7 +15,6 @@ data "terraform_remote_state" "db" {
   }
 }
 
-
 data "aws_vpc" "default" {
   default = true
 }
@@ -38,7 +37,7 @@ resource "aws_launch_configuration" "example" {
               sudo apt install -y apache2
               sudo systemctl start apache2
               sudo systemctl enable apache2
-              echo "<html><body><h1>Welcome to your new web server on port ${var.server_port} and db ${data.terraform_remote_state.db.outputs.address}!</h1></body></html>" > /var/www/html/index.html
+              echo "<html><body><h1>Welcome to your new web server on port ${var.server_port} !</h1></body></html>" > /var/www/html/index.html
               EOF
 
   lifecycle {
